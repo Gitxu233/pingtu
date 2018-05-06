@@ -10,14 +10,13 @@ import sys
 p = []	#进程列表
 ori_img = Image.open('1.jpg')#.resize((480,270))#读取原图
 wt,ht = ori_img.size	#原图尺寸
-delta = 5				#分割大小
+delta = 5		#分割大小
 subimgsize = 64		#素材图片大小
 imglist = []			#素材图片列表
 outputlist = []			#输出结果部分列表
 newwt = int(subimgsize*wt/delta)#输出的宽
 newht = int(subimgsize*ht/delta)#输出的高
 img_num = 504		#引用素材数量
-#	E:\WEB积木\拼图素材\img	素材2-5004
 def averrgb(img):
 	iw,ih = img.size
 	pix = img.getpixel
@@ -105,12 +104,6 @@ if __name__ == '__main__':
 		
 	for i in range(0,CPUS):
 		p[i].join()
-	'''
-	print('rgbqueue')
-	print(rgbqueue.qsize())
-	print('imgqueue')
-	print(imgqueue.qsize())
-	'''
 	
 	print('imglist长度'+str(len(imglist)))
 	newimg = Image.new('RGB', (int(newwt),int(newht)))#创建新图片
